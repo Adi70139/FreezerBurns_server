@@ -38,7 +38,8 @@ const placeOrder = async (req, res) => {
         })
         
           const session = await stripe.checkout.sessions.create({
-            success_url: `http://localhost:5173/verify?success=true&orderId=${newOrder._id}`,
+            //success_url: `http://localhost:5173/verify?success=true&orderId=${newOrder._id}`,
+            success_url: `https://freezer-com.onrender.com/myorders`,
             cancel_url: `http://localhost:5173/verify?success=false&orderId=${newOrder._id}`,
             line_items: line_items,
             mode: 'payment',
